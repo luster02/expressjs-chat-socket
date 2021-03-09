@@ -16,7 +16,7 @@ export function Server(callback: any) {
     app.use(json())
     app.use(urlencoded({ extended: true }))
 
-    modules(app)
+    modules(app, io)
 
     const port = app.get('port')
 
