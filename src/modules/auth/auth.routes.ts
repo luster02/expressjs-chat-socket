@@ -1,10 +1,11 @@
 import { Router } from 'express'
+import { Server } from 'socket.io'
 import { check } from 'express-validator'
 import { createUser, findUserAndLogin, renewToken, sendMailResetPassword, verifyResetPasswordCode } from './auth.controller'
 import { ValidateJsonWenToken } from '../../middlewares/jwt-validator'
 import { FieldValidator } from '../../middlewares/express-validator'
 
-export function AuthRoutes() {
+export function AuthRoutes(sockets?: any, server?: Server) {
     const router = Router()
 
     router.post('/register', [
