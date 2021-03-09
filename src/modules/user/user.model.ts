@@ -3,7 +3,8 @@ import { Schema, model, Document } from 'mongoose'
 interface IUser extends Document {
     email: string
     password: string
-    name: string
+    name: string,
+    online: boolean
 }
 
 let UserSchema = new Schema({
@@ -19,6 +20,10 @@ let UserSchema = new Schema({
     name: {
         type: String,
         required: true
+    },
+    online: {
+        type: Boolean,
+        default: false
     }
 }, {
     timestamps: true
