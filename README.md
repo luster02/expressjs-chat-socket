@@ -18,6 +18,6 @@
 
 ### run server
 ```
-    npm run start:dev <watching changes>
+    npm run dev <watching changes>
     npm run start 
 ```
