@@ -42,3 +42,17 @@ export async function editUser(req: Request, res: Response) {
         res.status(500).json({ ok: false, error })
     }
 }
+
+export async function updateUserStatus(uid: string, status: boolean) {
+    try {
+        const user = await User.findById(uid)
+        if (!user) {
+            return
+        } else {
+            user.online = status;
+            await user.save()
+        }
+    } catch (error) {
+        return null
+    }
+}
